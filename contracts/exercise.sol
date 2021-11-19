@@ -70,6 +70,7 @@ contract Pet{
     function feed(uint256 value) public{
         uint256 currentTime = block.timestamp;
         require(currentTime < _lastFed + 4 hours, 'Your pet starved to death, sorry. Your FOD coins were returned');
+        console.log(value);
         Food(_foodAddress).burn(msg.sender, value);
         _lastFed = block.timestamp;
     }
